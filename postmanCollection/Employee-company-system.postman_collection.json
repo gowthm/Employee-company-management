@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "f2fb8d12-b46d-4045-a565-9e622006300a",
+		"name": "Employee-company-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6270567"
+	},
+	"item": [
+		{
+			"name": "admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"empCode\": \"asA1w\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"login"
+					]
+				},
+				"description": "here first admin get token by his email and employee id"
+			},
+			"response": []
+		},
+		{
+			"name": "add employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"yuvi\",\n    \"email\": \"yuvi@gmail.com\",\n    \"phoneNo\": 9020202067,\n    \"companyCode\": \"je3\",\n    \"isReportManager\": true,\n    \"toReportManager\": [\"5ff9e5ee634c379667c1fc80\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"add"
+					]
+				},
+				"description": "add employee by admin token"
+			},
+			"response": []
+		},
+		{
+			"name": "update employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": \"1AlSf\",\n    \"name\": \"yuvaraj\",\n    \"email\": \"yuvi@gmail.com\",\n    \"phoneNo\": \"0987654321\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"update"
+					]
+				},
+				"description": "admin can make update employee"
+			},
+			"response": []
+		},
+		{
+			"name": "get employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": \"1AlSf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/get-employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"get-employee"
+					]
+				},
+				"description": "admin can make get employee"
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": \"1AlSf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/emp-delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"emp-delete"
+					]
+				},
+				"description": "admin can make delete employee"
+			},
+			"response": []
+		},
+		{
+			"name": "search employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCode\": \"VDt\",\n    \"searchData\": 987654312\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/emp-search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"emp-search"
+					]
+				},
+				"description": "admin can make search employee by his name, phone no, employeeId"
+			},
+			"response": []
+		},
+		{
+			"name": "add company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTEzNzEzOSwiZXhwIjoxNjU1MjIzNTM5fQ.7yGn3ley9eYcFdBTIEg9aneMGVFa6ja_cKeVmcjZnrY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyName\": \"mcx\",\n    \"address\": \"india\",\n    \"phoneNo\": \"040303030\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/company/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"company",
+						"add"
+					]
+				},
+				"description": "admin can make add company"
+			},
+			"response": []
+		},
+		{
+			"name": "update company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCode\": \"qUE\",\n    \"companyName\": \"google pvt limit\",\n    \"address\": \"america\",\n    \"phoneNo\": 34545345345\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/company/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"company",
+						"update"
+					]
+				},
+				"description": "admin can make update company details"
+			},
+			"response": []
+		},
+		{
+			"name": "get company detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"companyCode\": \"EHi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/company/get-company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"company",
+						"get-company"
+					]
+				},
+				"description": "admin can make company details"
+			},
+			"response": []
+		},
+		{
+			"name": "delete company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"companyCode\": \"VDt\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/company/delete-company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"company",
+						"delete-company"
+					]
+				},
+				"description": "admin can make delete company"
+			},
+			"response": []
+		},
+		{
+			"name": "get employee with his report manager",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY1NTE3NDc3NSwiZXhwIjoxNjU1MjYxMTc1fQ.-VEz_lpzE9JhhlYZFbr0khV8HnlNbS4jHwjIkrZaz0M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": \"TDpqr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/employee/get-employee-by-report-manager",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"employee",
+						"get-employee-by-report-manager"
+					]
+				},
+				"description": "admin can make get employee with his report manager"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imdvd0BnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MTAyMTM1MTAsImV4cCI6MTYxMDI5OTkxMH0.Gexki0iVW2B44m2HjjaE1ly_sHHTAARkdtTKpHOmb00",
+				"type": "string"
+			}
+		]
+	}
+}
