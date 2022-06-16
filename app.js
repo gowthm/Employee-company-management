@@ -5,9 +5,11 @@ const bodyParser=require('body-parser');
 const port = 3030;
 const company = require('./controller/companyDetail');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const connection = 'mongodb://localhost:27017/user_profiles';
 app.use(bodyParser.urlencoded({extended: true}));  
 app.use(bodyParser.json());
+app.use(cookieParser())
 app.use('/employee', employee);
 app.use('/company', company);
 mongoose.connect(connection, {useNewUrlParser: true, useUnifiedTopology: true}, function(error, client) {

@@ -8,6 +8,10 @@ const companySchema = require('../model/company');
 
 // admin login by get token
 
+router.put('/logout', function(req, res) {
+   return res.clearCookie('token').status(200).send('Successfully logout')
+})
+
 router.post('/login', async function(req, res) {
     let userEmail = req.body.email;
     let empCode = req.body.empCode;
@@ -18,11 +22,7 @@ router.post('/login', async function(req, res) {
      if(employeeRes) {
         const token = await jwt.sign({email: userEmail, role: 'admin'}, '!!@#$%SWQ', {expiresIn: '24h'});
         if(token) {
-            const successRes = {
-                message: 'Successfully get token',
-                tokenData: token,
-            }
-            return res.status(200).send(successRes);
+            return res.cookie('token', token).status(200).send('Login successfully')
         }
      }
     });
